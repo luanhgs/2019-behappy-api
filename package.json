@@ -29,7 +29,7 @@
     "babel-register": "^6.26.0",
     "hapi-auto-route": "^2.0.7",
     "hapi-router": "^5.0.0",
-    "knex": "^0.15.2",
+    "knex": "^0.19.1",
     "nodemon": "^1.18.4",
     "sqlite3": "^4.0.2"
   }
