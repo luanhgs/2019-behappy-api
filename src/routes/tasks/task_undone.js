@@ -12,8 +12,12 @@ const response_builder = data => {
       },
       links: [
         {
-          rel: `/linkrels/tasks/${data[0].oid}/undone`,
-          uri: `/tasks/${data[0].oid}/undone`
+          rel: `/linkrels/tasks/${data[0].oid}/done`,
+          uri: `/tasks/${data[0].oid}/done`
+        },
+        {
+          rel: `/linkrels/tasks/${data[0].oid}/delete`,
+          uri: `/tasks/${data[0].oid}/delete`
         }
       ]
     };
@@ -29,12 +33,10 @@ const response_code_builder = data => (data.length > 0 ? 200 : 406);
 
 export default {
   method: "POST",
-  path: "/tasks/{task_id}/done",
+  path: "/tasks/{task_id}/undone",
   handler: (request, reply) => {
-    return Task.done(request.params.task_id).then(data => {
-      return reply
-        .response(response_builder(data))
-        .code(response_code_builder(data));
-    });
+    return Task.undone(request.params.task_id).then(data =>
+      reply.response(response_builder(data)).code(response_code_builder(data))
+    );
   }
 };
