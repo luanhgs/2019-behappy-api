@@ -7,7 +7,7 @@ class Task {
   static getAll() {
     return knex
       .from(table_name)
-      .select("oid", "title", "description")
+      .select()
       .then(results => Task.deserialize(results))
       .catch(err => err);
   }
