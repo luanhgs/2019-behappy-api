@@ -1,3 +1,5 @@
 import Task from "./tasks";
+import What from "./what";
+import Who from "./who";
 
-export { Task };
+export { Task, What, Who };
