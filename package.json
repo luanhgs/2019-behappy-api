@@ -1,28 +1,37 @@
 {
-  "name": "auth",
-  "version": "1.0.0",
-  "description": "Projeto exemplo de autenticação em API via longin/senha e token",
-  "main": "server.js",
-  "scripts": {
-    "start": "nodemon server.js"
+  "name": "tarefas-api",
+  "version": "0.0.1",
+  "description": "API do App Lista de tarefas",
+  "main": "bootstrap.js",
+  "engines": {
+    "node": "12"
   },
-  "keywords": [
-    "api",
-    "auth",
-    "token",
-    "jwt",
-    "jsonwebtoken",
-    "username password"
-  ],
-  "author": "Leonardo A. MINORA",
+  "scripts": {
+    "dev-start": "nodemon bootstrap",
+    "start": "node bootstrap",
+    "postinstall": "knex migrate:latest && knex seed:run",
+    "db-migrate": "knex migrate:up",
+    "db-migrate-make": "knex migrate:make",
+    "db-migrate-down": "knex migrate:down",
+    "db-seed-make": "knex seed:make",
+    "db-populate": "knex seed:run",
+    "db-create": "knex migrate:latest && knex seed:run"
+  },
+  "keywords": ["api", "todo", "tarefas", "hapi"],
+  "author": "L A MINORA",
   "license": "ISC",
   "dependencies": {
-    "@hapi/basic": "^5.1.1",
-    "@hapi/hapi": "^18.3.2",
-    "@hapi/joi": "^15.1.1",
-    "bcrypt": "^3.0.6",
-    "hapi-auth-jwt2": "^8.6.1",
-    "jsonwebtoken": "^8.5.1",
+    "@hapi/hapi": "^18.3.1",
+    "@hapi/joi": "^15.1.0",
+    "babel-core": "^6.26.3",
+    "babel-plugin-syntax-async-functions": "^6.13.0",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "hapi-router": "^5.0.0",
+    "knex": "^0.19.1",
+    "sqlite3": "^4.0.2"
+  },
+  "devDependencies": {
     "nodemon": "^1.19.1"
   }
 }
