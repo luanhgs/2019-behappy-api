@@ -29,6 +29,9 @@ const delete_response_code = result => (result == 1 ? 200 : 400);
 export default {
   method: "DELETE",
   path: "/tasks/{task_id}",
+  options: {
+    auth: "token"
+  },
   handler: (request, reply) =>
     Task.delete(request.params.task_id).then(tasks =>
       reply

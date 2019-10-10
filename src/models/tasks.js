@@ -33,10 +33,11 @@ class Task {
       .catch(err => -1);
   }
 
-  static getAll() {
+  static getAll(user_oid = 0) {
     return knex
       .from(table_name)
       .select()
+      .where("user", user_oid)
       .then(results => Task.deserialize(results))
       .catch(err => err);
   }

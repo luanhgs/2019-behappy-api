@@ -36,6 +36,7 @@ export default {
     );
   },
   options: {
+    auth: "token",
     validate: {
       payload: Joi.object({
         title: Joi.string().required(),

@@ -34,6 +34,9 @@ const response_code_builder = data => (data.length > 0 ? 200 : 406);
 export default {
   method: "POST",
   path: "/tasks/{task_id}/undone",
+  options: {
+    auth: "token"
+  },
   handler: (request, reply) => {
     return Task.undone(request.params.task_id).then(data =>
       reply.response(response_builder(data)).code(response_code_builder(data))
